@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DIEUVE IN POWER</title>
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <style>
+        body {text-align:center; font-family:Arial; background:#6a0dad; color:white; padding-top:50px;}
+        button {padding:15px 30px; font-size:18px; background:#ffcc00; border:none; border-radius:10px; cursor:pointer;}
+    </style>
+</head>
+<body>
+    <h1>🔥 DIEUVE IN POWER 🔥</h1>
+    <p>Welcome to the Official App</p>
+    <button id="signin">Sign in with Pi</button>
+
+    <script>
+        Pi.init({ version: "2.0", sandbox: true });
+        document.getElementById("signin").onclick = function() {
+            Pi.authenticate(['username'], function(){}).then(function(auth) {
+                alert("Welcome " + auth.user.username);
+            }).catch(function(error) {
+                alert("Error: " + error);
+            });
+        };
+    </script>
+</body>
+</html>
